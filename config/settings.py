@@ -41,8 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
+    'mptt',
+
+    'drf_yasg',
+    'src.wall',
     'src.profiles',
-    'drf_yasg'
+    'src.comments',
+
 
 ]
 
