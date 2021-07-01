@@ -38,3 +38,11 @@ class GetUserNetPublicSerializer(serializers.ModelSerializer):
             "user_permissions"
         )
 
+class UserByFollowerSerializer(serializers.ModelSerializer):
+    """серелищатор для подпищиков"""
+
+    avatar = serializers.ImageField(read_only=True)
+
+    class Meta:
+        model = UserNet
+        fields = ('id', 'username', 'avatar')

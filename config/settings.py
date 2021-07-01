@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'src.wall',
     'src.profiles',
     'src.comments',
+    'src.followers',
 
 
 ]
