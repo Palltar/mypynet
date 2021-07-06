@@ -13,3 +13,8 @@ class Feed:
 
 
 feed_service = Feed()
+
+#def feed(user):
+#    subscribe =Follower.object.filter(subscriber=user)
+#    for sub in subscribe
+#        new = Post.object.Filter(user=sub)
