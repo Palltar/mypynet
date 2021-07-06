@@ -3,8 +3,7 @@ from .models import UserNet
 
 
 class GetUserNetSerializer(serializers.ModelSerializer):
-    """ Вывод инфо о user
-    """
+    """ Вывод инфо о user """
     avatar = serializers.ImageField(read_only=True)
 
     class Meta:
@@ -21,8 +20,7 @@ class GetUserNetSerializer(serializers.ModelSerializer):
 
 
 class GetUserNetPublicSerializer(serializers.ModelSerializer):
-    """ Вывод публичной инфы о user
-    """
+    """ Вывод публичной инфы о user """
     class Meta:
         model = UserNet
         exclude = (
@@ -40,7 +38,7 @@ class GetUserNetPublicSerializer(serializers.ModelSerializer):
 
 
 class UserByFollowerSerializer(serializers.ModelSerializer):
-    """серелищатор для подпищиков"""
+    """ серелизатор для подпищиков"""
 
     avatar = serializers.ImageField(read_only=True)
 

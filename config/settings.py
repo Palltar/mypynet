@@ -21,9 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'django-insecure-csmdrce8n0f-fmy6w0i*tla#)7)-m$8((%amiib8g(m9$2eu8*'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+#SECRET_KEY = os.environ.get("SECRET_KEY")
+#DEBUG = bool(int(os.environ.get("DEBUG", default=1)))
+#ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -57,6 +60,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    #Решение ошибики локайного доступа: CORS
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -133,7 +137,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = 'profiles.UserNet'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -153,7 +157,6 @@ REST_FRAMEWORK = {
 }
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
-    # 'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': '#/activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
     'SERIALIZERS': {},
@@ -187,7 +190,7 @@ SIMPLE_JWT = {
 
 
 
-
+AUTH_USER_MODEL = 'profiles.UserNet'
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8080",

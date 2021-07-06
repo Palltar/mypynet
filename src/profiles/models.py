@@ -2,8 +2,10 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+
+
 class UserNet(AbstractUser):
-    """ Custom user model    """
+    """ Модель информации пользователя """
 
     GENDER = (
         ('male', 'male'),
@@ -21,14 +23,14 @@ class UserNet(AbstractUser):
 
 
 class UsersMedia(models.Model):
-    """ Users_media  """
+    """  Модель жанров """
     name = models.CharField(max_length=100)
     genre = models.ForeignKey('Genre', on_delete=models.CASCADE, max_length=20)
 
     def __str__(self):
         return self.name
 
-
+"Модель файлов принадлежащих кажому жанру загруженная пользователем"
 class Genre(models.Model):
     name = models.CharField(max_length=20)
     ref = models.URLField(max_length=300)

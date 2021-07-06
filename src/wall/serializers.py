@@ -12,8 +12,7 @@ class CreateCommentSerializer(serializers.ModelSerializer):
 
 
 class ListCommentSerializer(serializers.ModelSerializer):
-    """ Список комментариев
-    """
+    """ Список комментариев """
     text = serializers.SerializerMethodField()
     children = RecursiveSerializer(many=True)
     user = serializers.ReadOnlyField(source='user.username')
@@ -30,8 +29,7 @@ class ListCommentSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    """ Вывод и редактирование поста
-    """
+    """ Вывод и редактирование поста    """
     user = serializers.ReadOnlyField(source='user.username')
     comments = ListCommentSerializer(many=True, read_only=True)
     view_count = serializers.CharField(read_only=True)
@@ -42,8 +40,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class ListPostSerializer(serializers.ModelSerializer):
-    """ Список постов
-    """
+    """ Список постов    """
     user = serializers.ReadOnlyField(source='user.username')
 
     class Meta:

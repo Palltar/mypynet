@@ -7,8 +7,7 @@ from .serializers import (PostSerializer, ListPostSerializer, CreateCommentSeria
 
 
 class PostListView(generics.ListAPIView):
-    """ Список постов на стене пользователя
-    """
+    """ Список постов на стене пользователя """
     serializer_class = ListPostSerializer
 
     def get_queryset(self):
@@ -17,8 +16,7 @@ class PostListView(generics.ListAPIView):
 
 
 class PostView(CreateRetrieveUpdateDestroy):
-    """ CRUD поста
-    """
+    """ CRUD поста    """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.all().select_related('user').prefetch_related('comments')
     serializer_class = PostSerializer

@@ -7,16 +7,14 @@ from rest_framework import permissions
 
 
 class UserNetPublicView(ModelViewSet):
-    """ Вывод публичного профиля пользователя
-    """
+    """ Вывод публичного профиля пользователя """
     queryset = UserNet.objects.all()
     serializer_class = GetUserNetPublicSerializer
     permission_classes = [permissions.AllowAny]
 
 
 class UserNetView(ModelViewSet):
-    """ Вывод профиля пользователя
-    """
+    """ Вывод профиля пользователя  """
     serializer_class = GetUserNetSerializer
     permission_classes = [permissions.IsAuthenticated]
 
