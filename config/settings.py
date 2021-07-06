@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-csmdrce8n0f-fmy6w0i*tla#)7)-m$8((%amiib8g(m9$2eu8*'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'djoser',
     'mptt',
-
     'drf_yasg',
+
+    'src.feed',
     'src.wall',
     'src.profiles',
     'src.comments',
@@ -55,6 +57,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -194,3 +197,10 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:1313",
     "http://localhost:4200",
 ]
+
+#DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", None)
+#EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", None)
+#EMAIL_HOST = os.environ.get("EMAIL_HOST", None)
+#EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", None)
+#EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", None)
+#EMAIL_PORT = os.environ.get("EMAIL_PORT", None)

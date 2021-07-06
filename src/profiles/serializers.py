@@ -38,6 +38,7 @@ class GetUserNetPublicSerializer(serializers.ModelSerializer):
             "user_permissions"
         )
 
+
 class UserByFollowerSerializer(serializers.ModelSerializer):
     """серелищатор для подпищиков"""
 
